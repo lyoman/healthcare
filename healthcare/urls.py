@@ -17,17 +17,19 @@ from django.contrib import admin
 from django.urls import include , path
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_jwt.views import obtain_jwt_token
 
 admin.site.site_header = settings.ADMIN_SITE_HEADER
 admin.site.site_title = "Health Care"
 admin.site.index_title = 'Health Care Site Administration'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', admin.site.urls),
     # path('', include('accounts.urls')),
     # path('visitor/',include('visitor.urls', namespace="visitor")),
 
     #apis
+    path('api/auth/token/', obtain_jwt_token),
     path('api/users/', include(("accounts.api.urls",'accounts-api'), namespace='accounts-api')),
     path('api/patients/', include(("patients.api.urls",'patients-api'), namespace='patients-api')),
 ]

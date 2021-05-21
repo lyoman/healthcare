@@ -1,8 +1,9 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 from .models import User
 
 # Register your models here.
-class UserModelAdmin(admin.ModelAdmin):
+class UserModelAdmin(UserAdmin):
     list_display 	    = ["id", "username", "email",  "phone_number", "is_doctor", "is_specialist", "is_physician", "is_active", "is_staff", "is_superuser", "updated", "timestamp"]
     list_display_links  = ["updated", "username"]
     list_editable		= ["is_active"]
