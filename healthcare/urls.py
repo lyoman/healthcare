@@ -24,9 +24,8 @@ admin.site.site_title = "Health Care"
 admin.site.index_title = 'Health Care Site Administration'
 
 urlpatterns = [
-    path('', admin.site.urls),
-    # path('', include('accounts.urls')),
-    # path('visitor/',include('visitor.urls', namespace="visitor")),
+    path('/admin', admin.site.urls),
+    path('/', admin.site.urls),
 
     #apis
     path('api/auth/token/', obtain_jwt_token),
