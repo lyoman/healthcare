@@ -55,12 +55,19 @@ class UserCreateSerializer(ModelSerializer):
         user_obj.save()
         return validated_data
 
+user_detail_url = HyperlinkedIdentityField(
+        view_name='accounts-api:detail',
+        lookup_field='id'#or primary key <pk>
+    )
+
 
 class UserDetailSerializer(ModelSerializer):
+    url = user_detail_url
     class Meta:
         model = User
         fields = [
             'id',
+            'url',
             'username',
             'email',
             'first_name',

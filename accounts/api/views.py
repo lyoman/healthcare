@@ -14,6 +14,7 @@ from rest_framework.parsers import (
 from rest_framework.generics import (
     CreateAPIView,
     ListAPIView,
+    RetrieveAPIView,
     )
 
 
@@ -65,4 +66,11 @@ class UserCreateAPIView(CreateAPIView):
 class UserDetailAPIView(ListAPIView):
     serializer_class = UserDetailSerializer
     queryset = User.objects.all()
+    permission_classes = [AllowAny]
+
+
+class UserlistAPIView(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserDetailSerializer
+    lookup_field = 'id'
     permission_classes = [AllowAny]

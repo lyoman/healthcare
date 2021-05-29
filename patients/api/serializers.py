@@ -32,13 +32,13 @@ class PatientCreateUpdateSerializer(ModelSerializer):
 
 patient_detail_url = HyperlinkedIdentityField(
         view_name='patients-api:detail',
-        lookup_field='pk'#or primary key <pk>
+        lookup_field='id'#or primary key <pk>
     )
 
 class PatientDetailSerializer(ModelSerializer):
     url = patient_detail_url
     user = UserDetailSerializer(read_only=True)
-    store_logo = SerializerMethodField()
+    # store_logo = SerializerMethodField()
     class Meta:
         model = Patient
         fields = [
@@ -72,7 +72,7 @@ class PatientListSerializer(ModelSerializer):
     user    =   UserDetailSerializer(read_only=True)
     delete_url = HyperlinkedIdentityField(
         view_name='patients-api:delete',
-        lookup_field='pk'#or primary key <pk>
+        lookup_field='id'#or primary key <pk>
     )
     class Meta:
         model = Patient

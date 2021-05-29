@@ -40,7 +40,7 @@ from rest_framework.permissions import (
 class PatientUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Patient.objects.all()
     serializer_class = PatientCreateUpdateSerializer
-    lookup_field = 'pk'
+    lookup_field = 'id'
     # permission_classes = [AllowAny]
     permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
@@ -51,7 +51,7 @@ class PatientUpdateAPIView(RetrieveUpdateAPIView):
 class PatientDeleteAPIView(DestroyAPIView):
     queryset = Patient.objects.all()
     serializer_class = PatientDetailSerializer
-    lookup_field = 'pk'
+    lookup_field = 'id'
     # permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
     # permission_classes = [AllowAny]
     permission_classes = [IsOwnerOrReadOnly]
@@ -59,7 +59,7 @@ class PatientDeleteAPIView(DestroyAPIView):
 class PatientDetailAPIView(RetrieveAPIView):
     queryset = Patient.objects.all()
     serializer_class = PatientDetailSerializer
-    lookup_field = 'pk'
+    lookup_field = 'id'
     permission_classes = [AllowAny]
 
 class PatientListAPIView(ListAPIView):
