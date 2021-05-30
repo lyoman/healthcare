@@ -50,6 +50,7 @@ ADMIN_SITE_HEADER = "Electronic Healthcare System"
 
 INSTALLED_APPS = [
     'accounts',
+    'approvals',
     'patients',
     'corsheaders',
     'django.contrib.admin',

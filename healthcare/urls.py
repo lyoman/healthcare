@@ -32,6 +32,7 @@ urlpatterns = [
     path('api/auth/token/', obtain_jwt_token),
     path('api/users/', include(("accounts.api.urls",'accounts-api'), namespace='accounts-api')),
     path('api/patients/', include(("patients.api.urls",'patients-api'), namespace='patients-api')),
+    path('api/approvals/', include(("approvals.api.urls",'approvals-api'), namespace='approvals-api')),
 ]
 
 
