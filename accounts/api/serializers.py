@@ -21,6 +21,8 @@ class UserCreateSerializer(ModelSerializer):
         fields = [
             'username',
             'phone_number',
+            'first_name',
+            'last_name',
             'email',
             'is_doctor',
             'is_specialist',
