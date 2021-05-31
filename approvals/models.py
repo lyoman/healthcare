@@ -4,9 +4,9 @@ from django.db import models
 from django.conf import settings
 
 class Approval(models.Model):
-    user 		   = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete = models.CASCADE)
-    status         = models.CharField(default="pending")
-    approvedby     = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, null = True, blank = True)
+    user 		   = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete = models.CASCADE, related_name='logged_in_user')
+    status         = models.CharField(default="pending", max_length=10)
+    approvedby     = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, null = True, blank = True, related_name='admin_approving_request')
     updated        = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp      = models.DateTimeField(auto_now=False, auto_now_add=True)
 

@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView
 
-from patients.models import Approval
+from approvals.models import Approval
 # from .serializers import ApprovalSerializer
 
 from django.db.models import Q
@@ -69,12 +69,10 @@ class ApprovalListAPIView(ListAPIView):
     pagination_class = ApprovalPageNumberPagination
     permission_classes = [AllowAny]
 
-    def get_queryset(self, *args, **kwargs):
-        queryset_list = Approval.objects.all()
-        # queryset_list = Approval.objects.filter(user=self.request.user)
-        query = self.request.GET.get("q")
-        if query:
-            queryset_list = queryset_list.filter(
-                Q(status__icontains=query)
-                ).distinct()
-        return queryset_list
+    def get_queryset(self):
+        queryset = Approval.objects.all()
+        id = self.request.query_params.get('id', None)
+        if id is not None:
+            queryset = queryset.filter(user=id)
+            print("hey you", queryset)
+        return queryset

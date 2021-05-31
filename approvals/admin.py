@@ -7,7 +7,7 @@ class ApprovalModelAdmin(admin.ModelAdmin):
     list_display_links  = ["updated", "timestamp", "user"]
     list_editable		= ["status"]
     list_filter			= ["updated", "timestamp", "approvedby"]
-    search_fields		= ["status""]
+    search_fields		= ["status"]
     class Meta:
         model = Approval
         
