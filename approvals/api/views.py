@@ -13,6 +13,7 @@ from rest_framework.filters import (
 from rest_framework.generics import (
     DestroyAPIView,
     ListAPIView, 
+    CreateAPIView,
     RetrieveAPIView,
     RetrieveUpdateAPIView,)
 
@@ -36,6 +37,14 @@ from rest_framework.permissions import (
 # class ApprovalListAPIView(ListAPIView):
 #     queryset = store.objects.all()
 #     serializer_class = storeSerializer
+
+#Creating an Ambulance
+class ApprovalCreateAPIView(CreateAPIView):
+    queryset = Approval.objects.all()
+    serializer_class = ApprovalCreateUpdateSerializer 
+    # lookup_field = 'id'
+    # permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
 class ApprovalUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Approval.objects.all()

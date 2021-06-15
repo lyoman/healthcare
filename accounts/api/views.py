@@ -68,6 +68,14 @@ class UserDetailAPIView(ListAPIView):
     queryset = User.objects.all()
     permission_classes = [AllowAny]
 
+    def get_queryset(self):
+        queryset = User.objects.all()
+        id = self.request.query_params.get('id', None)
+        if id is not None:
+            queryset = queryset.filter(id=id)
+            print("hey you", queryset)
+        return queryset
+
 
 class UserlistAPIView(RetrieveAPIView):
     queryset = User.objects.all()

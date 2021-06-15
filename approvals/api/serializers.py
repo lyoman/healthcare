@@ -20,7 +20,7 @@ class ApprovalCreateUpdateSerializer(ModelSerializer):
     class Meta:
         model = Approval
         fields = [
-            # 'id',
+            'id',
             'user',
             'approvedby',
             'status',
