@@ -45,6 +45,8 @@ CORS_ORIGIN_ALLOW_ALL=True
 
 ADMIN_SITE_HEADER = "Electronic Healthcare System"
 
+# APPEND_SLASH = False
+
 
 # Application definition
 

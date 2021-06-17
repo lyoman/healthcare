@@ -65,7 +65,7 @@ class PatientDetailAPIView(RetrieveAPIView):
 class PatientListAPIView(ListAPIView):
     serializer_class = PatientListSerializer
     filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ['patient_name', 'patient_id', 'heart_rate']
+    search_fields = ['patient_name', 'patient_id', 'heart_rate', 'patient_history']
     pagination_class = PatientPageNumberPagination
     permission_classes = [AllowAny]
 

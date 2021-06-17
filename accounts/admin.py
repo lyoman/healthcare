@@ -4,10 +4,10 @@ from .models import User
 
 # Register your models here.
 class UserModelAdmin(UserAdmin):
-    list_display 	    = ["id", "username", "email",  "phone_number", "is_doctor", "is_specialist", "is_physician", "is_active", "is_staff", "is_superuser", "updated", "timestamp"]
+    list_display 	    = ["id", "username","first_name", "last_name", "email",  "phone_number", "specialist_area", "medicall_staffer", "is_active", "is_staff", "is_superuser", "updated", "timestamp"]
     list_display_links  = ["updated", "username"]
     list_editable		= ["is_active"]
-    list_filter			= ["is_doctor", "is_specialist", "is_physician", "is_staff", "is_superuser", "updated", "timestamp", "email", "phone_number"]
+    list_filter			= ["specialist_area", "medicall_staffer", "is_staff", "is_superuser", "updated", "timestamp", "email", "phone_number"]
     search_fields		= ["username", "email", "phonenumber"]
     class Meta:
         model = User

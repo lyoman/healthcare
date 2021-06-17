@@ -24,9 +24,8 @@ class UserCreateSerializer(ModelSerializer):
             'first_name',
             'last_name',
             'email',
-            'is_doctor',
-            'is_specialist',
-            'is_physician',
+            'specialist_area',
+            'medicall_staffer',
             'password',
             
         ]
@@ -42,7 +41,7 @@ class UserCreateSerializer(ModelSerializer):
 
     def validate_email(self, value):
         data = self.get_initial()
-        email1 = data.get("email")
+        email = data.get("email")
         return value
 
     def create(self, validated_data):
@@ -75,9 +74,8 @@ class UserDetailSerializer(ModelSerializer):
             'first_name',
             'last_name',
             'phone_number',
-            'is_doctor',
-            'is_specialist',
-            'is_physician',
+            'specialist_area',
+            'medicall_staffer',
             'is_active',
             'is_staff',
             'is_superuser',

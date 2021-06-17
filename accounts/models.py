@@ -4,10 +4,12 @@ from django.core.validators import RegexValidator
 
 # Create your models here.
 class User(AbstractUser):
-    is_doctor       = models.BooleanField(default = True)
-    is_physician    = models.BooleanField(null=True, blank = True)
-    is_specialist   = models.BooleanField(null=True, blank = True)
+    # is_doctor       = models.BooleanField(default = True)
+    medicall_staffer = models.CharField(max_length=50, blank=True)
+    specialist_area = models.CharField(max_length=50, blank=True)
     email           = models.EmailField(unique=True, blank=True)
+    last_name       = models.EmailField(blank=True)
+    first_name      = models.EmailField(blank=True)
     phone_regex     = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number    = models.CharField(max_length=17, blank=True) # validators should be a list
     updated         = models.DateTimeField(auto_now=True, auto_now_add=False)

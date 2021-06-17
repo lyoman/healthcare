@@ -24,6 +24,7 @@ class ApprovalCreateUpdateSerializer(ModelSerializer):
             'user',
             'approvedby',
             'status',
+            'updated'
         ]
 
 
@@ -35,6 +36,7 @@ patient_detail_url = HyperlinkedIdentityField(
 class ApprovalDetailSerializer(ModelSerializer):
     url = patient_detail_url
     user = UserDetailSerializer(read_only=True)
+    approvedby = UserDetailSerializer(read_only=True)
     # store_logo = SerializerMethodField()
     class Meta:
         model = Approval
@@ -51,6 +53,7 @@ class ApprovalDetailSerializer(ModelSerializer):
 class ApprovalListSerializer(ModelSerializer):
     url = patient_detail_url
     user    =   UserDetailSerializer(read_only=True)
+    approvedby = UserDetailSerializer(read_only=True)
     delete_url = HyperlinkedIdentityField(
         view_name='approvals-api:delete',
         lookup_field='id'#or primary key <pk>

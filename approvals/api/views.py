@@ -50,12 +50,12 @@ class ApprovalUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Approval.objects.all()
     serializer_class = ApprovalCreateUpdateSerializer
     lookup_field = 'id'
-    # permission_classes = [AllowAny]
-    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    permission_classes = [AllowAny]
+    # permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
-    def perform_update(self, serializer):
-        serializer.save(user=self.request.user)
+    # def perform_update(self, serializer):
+    #     serializer.save(user=self.request.user)
 
 class ApprovalDeleteAPIView(DestroyAPIView):
     queryset = Approval.objects.all()
