@@ -4,7 +4,6 @@ from django.core.validators import RegexValidator
 
 # Create your models here.
 class User(AbstractUser):
-    # is_doctor       = models.BooleanField(default = True)
     medicall_staffer = models.CharField(max_length=50, blank=True)
     specialist_area = models.CharField(max_length=50, blank=True)
     email           = models.EmailField(unique=True, blank=True)

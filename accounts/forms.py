@@ -31,15 +31,15 @@ class PhysicianSignUpForm(UserCreationForm):
             user.save()
         return user
 
-class DoctorSignUpForm(UserCreationForm):
-    class Meta(UserCreationForm.Meta):
-        model = User
-        fields = ('username','email',"phone_number", "password1", "password2")
+# class DoctorSignUpForm(UserCreationForm):
+#     class Meta(UserCreationForm.Meta):
+#         model = User
+#         fields = ('username','email',"phone_number", "password1", "password2")
 
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        user.is_doctor = True
-        user.is_active = False
-        if commit:
-            user.save()
-        return user
+#     def save(self, commit=True):
+#         user = super().save(commit=False)
+#         user.is_doctor = True
+#         user.is_active = False
+#         if commit:
+#             user.save()
+#         return user
